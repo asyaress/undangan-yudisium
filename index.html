@@ -479,32 +479,38 @@
 
     .signature-layer {
       position: relative;
-      padding-top: 8px;
+      min-height: 184px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .signature-box {
-      height: 132px;
-      border: 1.5px dashed rgba(200, 145, 65, 0.66);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.58);
+      min-height: 184px;
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      background: transparent;
       display: grid;
       place-items: center;
-      padding: 8px;
+      padding: 0 16px;
     }
 
     .stamp-overlay {
       position: absolute;
-      right: 10px;
-      top: -10px;
-      width: 112px;
-      height: 112px;
-      border: 1.5px dashed rgba(200, 145, 65, 0.66);
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.62);
+      left: 28%;
+      top: 50%;
+      width: 122px;
+      height: 122px;
+      transform: translate(-50%, -50%) rotate(-3deg);
+      border: none;
+      border-radius: 0;
+      background: transparent;
       display: grid;
       place-items: center;
-      padding: 8px;
-      box-shadow: 0 8px 16px rgba(142, 94, 25, 0.14);
+      padding: 0;
+      box-shadow: none;
+      pointer-events: none;
     }
 
     .asset-image {
@@ -512,6 +518,18 @@
       max-height: 100%;
       object-fit: contain;
       display: none;
+    }
+
+    #ttdImage.asset-image {
+      width: min(76%, 500px);
+      max-height: 170px;
+      filter: contrast(1.12) saturate(1.06);
+    }
+
+    #stampImage.asset-image {
+      width: 100%;
+      height: 100%;
+      opacity: 0.96;
     }
 
     .asset-placeholder {
@@ -614,10 +632,9 @@
       }
 
       .stamp-overlay {
-        width: 90px;
-        height: 90px;
-        right: 8px;
-        top: -8px;
+        width: 96px;
+        height: 96px;
+        left: 25%;
       }
     }
 
@@ -856,12 +873,12 @@
           </div>
           <div class="signature-layer">
             <div class="signature-box">
-              <img class="asset-image" id="ttdImage" src="ttd-prof-thamrin.png" alt="Tanda tangan dekan" />
-              <span class="asset-placeholder" id="ttdPlaceholder">Taruh file TTD: ttd-prof-thamrin.png</span>
+              <img class="asset-image" id="ttdImage" src="ttd.png" alt="Tanda tangan dekan" />
+              <span class="asset-placeholder" id="ttdPlaceholder">Taruh file TTD: ttd.png</span>
             </div>
             <div class="stamp-overlay">
-              <img class="asset-image" id="stampImage" src="stempel-ft.png" alt="Stempel Fakultas Teknik" />
-              <span class="asset-placeholder" id="stampPlaceholder">Taruh stempel: stempel-ft.png</span>
+              <img class="asset-image" id="stampImage" src="stempel.png" alt="Stempel Fakultas Teknik" />
+              <span class="asset-placeholder" id="stampPlaceholder">Taruh stempel: stempel.png</span>
             </div>
           </div>
           <p class="auth-name">Prof. Dr. Ir. Thamrin, S.T., M.T, IPU, ASEAN. Eng., APEC. Eng</p>
