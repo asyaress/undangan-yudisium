@@ -882,14 +882,14 @@
     <section class="invitation" id="invitationContent">
       <article class="panel card">
         <h2 class="title">Dengan Hormat</h2>
-        <p class="line">
-          Kami mengundang Bapak/Ibu/Saudara(i) untuk hadir dalam acara Yudisium Fakultas Teknik Universitas Mulawarman.
+        <p class="line" id="invitationLine">
+          Dengan hormat, kami mengundang Bapak/Ibu/Saudara(i) untuk menghadiri acara Yudisium Fakultas Teknik Universitas Mulawarman.
         </p>
         <div class="mini-brand">
           <img data-logo="unmul" src="Unmul.png" alt="Logo Universitas Mulawarman" />
         </div>
         <div class="details">
-          <p><strong>Hari/Tanggal:</strong> Kamis, 08 April 2026</p>
+          <p><strong>Hari/Tanggal:</strong> Rabu, 08 April 2026</p>
           <p><strong>Waktu:</strong> 09.00 s/d Selesai</p>
           <p><strong>Tempat:</strong> Gedung Hexagon Fakultas Teknik UNMUL</p>
           <p><strong>Alamat:</strong> Jl. Sambaliung No.9, Gunung Kelua, Samarinda</p>
@@ -982,12 +982,34 @@
     const backgroundVideo = document.getElementById("backgroundVideo");
     const recipientText = document.getElementById("recipientText");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const invitationLine = document.getElementById("invitationLine");
     const revealItems = Array.from(content.children);
     const logoCandidates = ["Unmul.png", "unmul.png", "UNMUL.png"];
     const recipientMap = {
-      yudisiawan: "Yudisiawan",
-      orangtua: "Orang Tua Yudisiawan",
-      pejabat: "Pejabat Fakultas dan Universitas"
+      yudisiawan: "Yudisiawan/Yudisiawati",
+      orangtua: "Orang Tua Yudisiawan/Yudisiawati",
+      pejabat: "Pejabat Fakultas Teknik Universitas Mulawarman",
+      ketuasenat: "Ketua Senat Fakultas Teknik",
+      anggotasenat: "Seluruh Anggota Senat Fakultas Teknik"
+    };
+    const recipientCoverMap = {
+      yudisiawan: "cover-yudisiawan",
+      orangtua: "cover-orangtua",
+      pejabat: "cover-pejabat",
+      ketuasenat: "cover-pejabat",
+      anggotasenat: "cover-pejabat"
+    };
+    const invitationLineMap = {
+      yudisiawan:
+        "Dengan hormat, kami mengundang para Yudisiawan/Yudisiawati untuk menghadiri acara Yudisium Fakultas Teknik Universitas Mulawarman.",
+      orangtua:
+        "Dengan hormat, kami mengundang Bapak/Ibu Orang Tua/Wali Yudisiawan untuk menghadiri acara Yudisium Fakultas Teknik Universitas Mulawarman.",
+      pejabat:
+        "Dengan hormat, kami mengundang Bapak/Ibu Pejabat Fakultas Teknik Universitas Mulawarman untuk menghadiri acara Yudisium Fakultas Teknik Universitas Mulawarman.",
+      ketuasenat:
+        "Dengan hormat, kami mengundang Bapak Ketua Senat Fakultas Teknik untuk menghadiri acara Yudisium Fakultas Teknik Universitas Mulawarman.",
+      anggotasenat:
+        "Dengan hormat, kami mengundang Bapak/Ibu Anggota Senat Fakultas Teknik untuk menghadiri acara Yudisium Fakultas Teknik Universitas Mulawarman."
     };
     const setupRecipient = () => {
       const url = new URL(window.location.href);
@@ -997,16 +1019,22 @@
         "orang-tua": "orangtua",
         "parents": "orangtua",
         "official": "pejabat",
-        "pejabat-fakultas": "pejabat"
+        "pejabat-fakultas": "pejabat",
+        "ketua-senat": "ketuasenat",
+        "anggota-senat": "anggotasenat",
+        "senat": "anggotasenat"
       };
       const key = recipientMap[keyRaw] ? keyRaw : (aliases[keyRaw] || "yudisiawan");
 
       if (recipientText) {
         recipientText.textContent = recipientMap[key];
       }
+      if (invitationLine) {
+        invitationLine.textContent = invitationLineMap[key] || invitationLineMap.yudisiawan;
+      }
 
       document.body.classList.remove("cover-yudisiawan", "cover-orangtua", "cover-pejabat");
-      document.body.classList.add(`cover-${key}`);
+      document.body.classList.add(recipientCoverMap[key] || "cover-yudisiawan");
     };
 
     const setupBackgroundVideo = () => {
