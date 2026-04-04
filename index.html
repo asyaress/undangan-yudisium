@@ -121,12 +121,9 @@
       pointer-events: none;
       z-index: 30;
       opacity: 0;
-      transform: scale(1.12);
-      filter: blur(12px);
-      background:
-        radial-gradient(circle at 50% 120%, rgba(204, 138, 33, 0.24), transparent 56%),
-        radial-gradient(circle at 50% -10%, rgba(141, 92, 22, 0.2), transparent 52%),
-        linear-gradient(145deg, rgba(140, 90, 18, 0.22), rgba(204, 138, 33, 0.2));
+      transform: scale(1.04);
+      filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.06));
       transition:
         opacity 620ms var(--ease-out),
         transform 620ms var(--ease-out),
@@ -258,8 +255,88 @@
 
     .guest {
       font-weight: 600;
-      margin-bottom: 18px;
-      font-size: 1rem;
+      margin-bottom: 12px;
+      font-size: 1.04rem;
+      color: rgba(28, 28, 30, 0.9);
+    }
+
+    .guest-label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    body.cover-yudisiawan #cover {
+      background:
+        radial-gradient(circle at 10% -20%, rgba(240, 170, 72, 0.22), transparent 46%),
+        radial-gradient(circle at 90% 120%, rgba(203, 118, 24, 0.2), transparent 48%),
+        linear-gradient(140deg, rgba(255, 251, 242, 0.34), rgba(255, 255, 255, 0.2));
+      border-color: rgba(226, 164, 74, 0.52);
+      box-shadow: 0 16px 32px rgba(159, 102, 18, 0.18);
+    }
+
+    body.cover-yudisiawan #cover .label,
+    body.cover-yudisiawan #cover .meta {
+      color: rgba(108, 73, 25, 0.78);
+    }
+
+    body.cover-orangtua #cover {
+      background:
+        radial-gradient(circle at 0% 0%, rgba(160, 197, 160, 0.28), transparent 44%),
+        radial-gradient(circle at 100% 100%, rgba(117, 161, 119, 0.24), transparent 50%),
+        linear-gradient(145deg, rgba(250, 255, 248, 0.34), rgba(240, 250, 238, 0.24));
+      border-color: rgba(129, 171, 132, 0.52);
+      box-shadow: 0 16px 30px rgba(80, 118, 82, 0.18);
+    }
+
+    body.cover-orangtua #cover .logo-frame {
+      border-color: rgba(182, 214, 182, 0.66);
+      background: radial-gradient(circle, rgba(252, 255, 252, 0.94) 15%, rgba(229, 245, 229, 0.66) 100%);
+    }
+
+    body.cover-orangtua #cover h1 {
+      color: #2f4733;
+    }
+
+    body.cover-orangtua #cover .label,
+    body.cover-orangtua #cover .meta,
+    body.cover-orangtua #cover .guest-label {
+      color: rgba(59, 91, 62, 0.78);
+    }
+
+    body.cover-orangtua #cover .btn {
+      background: linear-gradient(135deg, #5f8a65, #4f7756);
+      border-color: rgba(223, 243, 223, 0.44);
+    }
+
+    body.cover-pejabat #cover {
+      background:
+        radial-gradient(circle at 50% -30%, rgba(241, 204, 143, 0.24), transparent 50%),
+        linear-gradient(145deg, rgba(28, 40, 66, 0.78), rgba(52, 35, 20, 0.72));
+      border-color: rgba(224, 183, 113, 0.62);
+      box-shadow: 0 20px 36px rgba(26, 29, 49, 0.32);
+    }
+
+    body.cover-pejabat #cover .logo-frame {
+      border-color: rgba(233, 197, 137, 0.7);
+      box-shadow: inset 0 0 0 7px rgba(255, 255, 255, 0.46), 0 14px 26px rgba(16, 24, 42, 0.36);
+    }
+
+    body.cover-pejabat #cover h1,
+    body.cover-pejabat #cover .guest,
+    body.cover-pejabat #cover .guest-label {
+      color: rgba(255, 244, 226, 0.96);
+    }
+
+    body.cover-pejabat #cover .label,
+    body.cover-pejabat #cover .meta {
+      color: rgba(244, 220, 182, 0.88);
+    }
+
+    body.cover-pejabat #cover .btn {
+      background: linear-gradient(135deg, #c89a3d, #98691a);
+      border-color: rgba(255, 236, 204, 0.44);
+      box-shadow: 0 14px 28px rgba(17, 24, 39, 0.34);
     }
 
     .btn {
@@ -334,9 +411,9 @@
     }
 
     body.opening .transition-layer {
-      opacity: 1;
+      opacity: 0.4;
       transform: scale(1);
-      filter: blur(0);
+      filter: blur(0.5px);
     }
 
     body.opening .invitation,
@@ -357,7 +434,7 @@
     body.opened .transition-layer {
       opacity: 0;
       transform: scale(0.98);
-      filter: blur(10px);
+      filter: blur(4px);
       transition-duration: 500ms;
     }
 
@@ -797,7 +874,8 @@
         Program Sarjana Angkatan 81 Periode I<br />
         Tahun 2026
       </p>
-      <p class="guest">Kepada Bapak/Ibu/Saudara(i)</p>
+      <p class="guest-label">Kepada Yth.</p>
+      <p class="guest" id="recipientText">Yudisiawan</p>
       <button class="btn" id="openInvitation" type="button">Buka Undangan</button>
     </section>
 
@@ -811,7 +889,7 @@
           <img data-logo="unmul" src="Unmul.png" alt="Logo Universitas Mulawarman" />
         </div>
         <div class="details">
-          <p><strong>Hari/Tanggal:</strong> Rabu, 08 April 2026</p>
+          <p><strong>Hari/Tanggal:</strong> Kamis, 08 April 2026</p>
           <p><strong>Waktu:</strong> 09.00 s/d Selesai</p>
           <p><strong>Tempat:</strong> Gedung Hexagon Fakultas Teknik UNMUL</p>
           <p><strong>Alamat:</strong> Jl. Sambaliung No.9, Gunung Kelua, Samarinda</p>
@@ -902,9 +980,34 @@
     const cover = document.getElementById("cover");
     const logoFallback = document.getElementById("logoFallback");
     const backgroundVideo = document.getElementById("backgroundVideo");
+    const recipientText = document.getElementById("recipientText");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const revealItems = Array.from(content.children);
     const logoCandidates = ["Unmul.png", "unmul.png", "UNMUL.png"];
+    const recipientMap = {
+      yudisiawan: "Yudisiawan",
+      orangtua: "Orang Tua Yudisiawan",
+      pejabat: "Pejabat Fakultas dan Universitas"
+    };
+    const setupRecipient = () => {
+      const url = new URL(window.location.href);
+      const keyRaw = (url.searchParams.get("to") || "").toLowerCase();
+      const aliases = {
+        "ortu": "orangtua",
+        "orang-tua": "orangtua",
+        "parents": "orangtua",
+        "official": "pejabat",
+        "pejabat-fakultas": "pejabat"
+      };
+      const key = recipientMap[keyRaw] ? keyRaw : (aliases[keyRaw] || "yudisiawan");
+
+      if (recipientText) {
+        recipientText.textContent = recipientMap[key];
+      }
+
+      document.body.classList.remove("cover-yudisiawan", "cover-orangtua", "cover-pejabat");
+      document.body.classList.add(`cover-${key}`);
+    };
 
     const setupBackgroundVideo = () => {
       if (!backgroundVideo) return;
@@ -955,6 +1058,7 @@
       });
     };
 
+    setupRecipient();
     setupBackgroundVideo();
     setupLogoFallback();
 
