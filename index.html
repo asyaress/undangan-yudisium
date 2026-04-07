@@ -990,14 +990,16 @@
       orangtua: "Orang Tua Yudisiawan/Yudisiawati",
       pejabat: "Pejabat Fakultas Teknik Universitas Mulawarman",
       ketuasenat: "Ketua Senat Fakultas Teknik",
-      anggotasenat: "Seluruh Anggota Senat Fakultas Teknik"
+      anggotasenat: "Seluruh Anggota Senat Fakultas Teknik",
+      tendik: "Staff Tenaga Kependidikan"
     };
     const recipientCoverMap = {
       yudisiawan: "cover-yudisiawan",
       orangtua: "cover-orangtua",
       pejabat: "cover-pejabat",
       ketuasenat: "cover-pejabat",
-      anggotasenat: "cover-pejabat"
+      anggotasenat: "cover-pejabat",
+      tendik: "cover-pejabat"
     };
     const invitationLineMap = {
       yudisiawan:
@@ -1009,7 +1011,9 @@
       ketuasenat:
         "Dengan hormat, kami mengundang Bapak Ketua Senat Fakultas Teknik untuk menghadiri acara Yudisium Fakultas Teknik Universitas Mulawarman.",
       anggotasenat:
-        "Dengan hormat, kami mengundang Bapak/Ibu Anggota Senat Fakultas Teknik untuk menghadiri acara Yudisium Fakultas Teknik Universitas Mulawarman."
+        "Dengan hormat, kami mengundang Bapak/Ibu Anggota Senat Fakultas Teknik untuk menghadiri acara Yudisium Fakultas Teknik Universitas Mulawarman.",
+      tendik:
+        "Dengan hormat, kami mengundang Staff Tenaga Kependidikan untuk menghadiri acara Yudisium Fakultas Teknik Universitas Mulawarman."
     };
     const setupRecipient = () => {
       const url = new URL(window.location.href);
@@ -1022,7 +1026,10 @@
         "pejabat-fakultas": "pejabat",
         "ketua-senat": "ketuasenat",
         "anggota-senat": "anggotasenat",
-        "senat": "anggotasenat"
+        "senat": "anggotasenat",
+        "staff-tenaga-kependidikan": "tendik",
+        "tenaga-kependidikan": "tendik",
+        "staff": "tendik"
       };
       const key = recipientMap[keyRaw] ? keyRaw : (aliases[keyRaw] || "yudisiawan");
 
